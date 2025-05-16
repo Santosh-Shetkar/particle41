@@ -57,7 +57,10 @@ VPC with DNS support
     - kubectl, docker, awscli, and eksctl installed via remote-exec
     - Public IP for SSH access
 
+![vpc](images/1.png)
+
 🔐 Accessing the Jump Server
+![vpc](images/2.png)
 After apply, you can SSH into the jump server:
 ```
 ssh -i aws-testing-private.pem ubuntu@<public-ip>
@@ -104,7 +107,7 @@ terraform init
 ```
 Apply the configuration
 ```
-terraform apply -var-file=vars.yml
+terraform apply
 ```
 
 Review the plan and confirm to proceed.
@@ -119,7 +122,12 @@ Terraform will:
     - Optionally create GPU node groups if enabled.
     - Update your kubeconfig to access the new cluster.
 
-Verify the cluster:
+![vpc](images/3.png)
+
+Clusters compute node
+![vpc](images/4.png)
+
+Access the cluster and verify:
 ```
 kubectl get nodes
 ```
