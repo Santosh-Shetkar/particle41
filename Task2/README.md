@@ -73,11 +73,10 @@ Now after accessing the jump server setup EKS cluster by following below instruc
 This guide explains how to configure and deploy an Amazon EKS (Elastic Kubernetes Service) cluster using Terraform. All cluster-specific variables are managed via the eks-vars.yml file, and the infrastructure is provisioned using the aws-eks.tf configuration.
 
 📁 File Structure
-
+```text
 ├── vars.yml    # Cluster configuration variables
-
 └── eks.tf      # Terraform module and resource definitions
-
+```
 🔧 Prerequisites
 
 Terraform ≥ 1.0.x installed.
