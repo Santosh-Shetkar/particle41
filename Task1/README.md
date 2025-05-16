@@ -16,12 +16,13 @@
 simple-time-service/
 │
 ├── app/
-│   └── main.py
+│   └── main.py             # Flask application entry point
 │
-├── Dockerfile
-├── .dockerignore
-├── requirements.txt
-└── README.md
+├── Dockerfile              # Docker configuration (non-root setup)
+├── .dockerignore           # Files to ignore during Docker build
+├── requirements.txt        # Python dependencies
+└── README.md               # Project documentation
+
 
 
 ## 📦 Docker Quickstart
