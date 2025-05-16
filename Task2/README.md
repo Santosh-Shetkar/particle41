@@ -39,7 +39,7 @@ ec2_key_name: aws-testing-private  # Key name without .pem extension
 ### 2. Initialize and Apply Terraform
 ```
 terraform init
-terraform apply -var-file=vars.yml
+terraform apply
 ```
 
 📦 What Gets Created
