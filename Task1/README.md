@@ -13,6 +13,7 @@
 
 ---
 ## Project Structure
+```text
 simple-time-service/
 │
 ├── app/
@@ -22,7 +23,7 @@ simple-time-service/
 ├── .dockerignore           # Files to ignore during Docker build
 ├── requirements.txt        # Python dependencies
 └── README.md               # Project documentation
-
+```
 
 
 ## 📦 Docker Quickstart
