@@ -1,7 +1,9 @@
 ## Github Action to Build and Push image to image registry
 
 
-Using this github workflow you can build images and push it to image registry using github action
+Using this github workflow you can build images and push it to image registry using github action.
+
+Store your image registry username and password in github as a secret.
 
 .github/workflow
 
