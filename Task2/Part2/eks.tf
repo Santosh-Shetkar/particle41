@@ -16,9 +16,7 @@ terraform {
 
 locals {
   cluster_config = yamldecode(file("vars.yml"))
-  platform_nodes = local.cluster_config.platform_nodes
   compute_nodes  = local.cluster_config.compute_nodes
-  deployment_nodes = local.cluster_config.deployment_nodes
   region_az_mapping = {
     "us-east-1" = ["us-east-1a", "us-east-1b"],
     "us-east-2" = ["us-east-2a", "us-east-2b"],
@@ -108,7 +106,6 @@ module "eks" {
 
   tags = {
     unique-id = "particel-${local.cluster_config.random_value}"
-    "url" = local.cluster_config.particel_domain_prefix
   }
   cluster_addons = {
     coredns = {
@@ -165,17 +162,6 @@ resource "aws_iam_role_policy_attachment" "AWSAppMeshFullAccess" {
   role       = aws_iam_role.workernodes.name
 }
 
-resource "aws_launch_template" "platform-template" {
-  block_device_mappings {
-    device_name = "/dev/xvda"
-    ebs {
-      delete_on_termination = true
-      volume_type = "gp3"
-      volume_size = local.platform_nodes.os_disk_size
-    }
-  }
-}
-
 resource "aws_launch_template" "compute-template" {
   block_device_mappings {
     device_name = "/dev/xvda"
@@ -183,17 +169,6 @@ resource "aws_launch_template" "compute-template" {
       delete_on_termination = true
       volume_type = "gp3"
       volume_size = local.compute_nodes.os_disk_size
-    }
-  }
-}
-
-resource "aws_launch_template" "deployment-template" {
-  block_device_mappings {
-    device_name = "/dev/xvda"
-    ebs {
-      delete_on_termination = true
-      volume_type = "gp3"
-      volume_size = local.deployment_nodes.os_disk_size
     }
   }
 }

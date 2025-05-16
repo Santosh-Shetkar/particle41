@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket       = "your-terraform-state-bucket"   # e.g., particel-state-bucket
+    bucket       = "eks-tf-s3-locking"   # e.g., eks-tf-s3-locking
     key          = "eks/cluster.tfstate"           # path within the bucket
-    region       = local.cluster_config.aws_region
+    region       = "us-east-2" 
     encrypt      = true
     use_lockfile = true                            # ★ S3-native locking
   }
